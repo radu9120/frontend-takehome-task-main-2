@@ -94,7 +94,7 @@ export const SidebarToggleButton = styled.button`
   position: fixed;
   left: 10px;
   z-index: 999;
-  top: 10px;
+  top: 44px;
   background: none;
   border: none;
   display: none;
