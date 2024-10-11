@@ -89,8 +89,6 @@ export const SidebarIcon = styled.div`
   }
 `;
 
-// Toggle button for mobile screen
-// Toggle button for mobile screen
 export const SidebarToggleButton = styled.button`
   position: fixed;
   left: 10px;
@@ -101,6 +99,7 @@ export const SidebarToggleButton = styled.button`
   cursor: pointer;
   opacity: 1;
   transition: opacity 0.3s ease, left 0.3s ease;
+  display: none; /* Hide by default on larger screens */
 
   &.open {
     left: 54px;
@@ -128,7 +127,7 @@ export const SidebarToggleButton = styled.button`
   }
 
   @media (max-width: 768px) {
-    display: block;
+    display: block; /* Show on mobile screens */
   }
 `;
 
