@@ -29,13 +29,13 @@ const FooterNew = () => {
           <S.LinksWrapper>
             <S.QuickLinks>
               <h4>Quick Links</h4>
-              <a href="/" className="active">
-                Home
-              </a>
+              <a href="/">Home</a>
               <a href="/">Data</a>
               <a href="/">Cases</a>
               <a href="/">Customers</a>
-              <a href="/">Search Engine</a>
+              <a href="/" className="active">
+                Search Engine
+              </a>
               <a href="/">Custom Fields</a>
               <a href="/">Support</a>
             </S.QuickLinks>
