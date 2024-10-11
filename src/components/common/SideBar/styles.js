@@ -90,6 +90,7 @@ export const SidebarIcon = styled.div`
 `;
 
 // Toggle button for mobile screen
+// Toggle button for mobile screen
 export const SidebarToggleButton = styled.button`
   position: fixed;
   left: 10px;
@@ -97,8 +98,13 @@ export const SidebarToggleButton = styled.button`
   top: 44px;
   background: none;
   border: none;
-  display: none;
   cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.3s ease, left 0.3s ease;
+
+  &.open {
+    left: 54px;
+  }
 
   &.open span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
@@ -125,4 +131,5 @@ export const SidebarToggleButton = styled.button`
     display: block;
   }
 `;
+
 export const Overlay = styled.div``;

@@ -1,19 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as S from "./styles";
-
-import { Home, Briefcase, Users, Search, FileText, Settings, HelpCircle } from "lucide-react"; // Import lucide-react icons
+import { Home, Briefcase, Users, Search, FileText, Settings, HelpCircle } from "lucide-react";
 
 const Sidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isScrollingUp, setIsScrollingUp] = useState(true); // New state to track scroll direction
+  const [lastScrollTop, setLastScrollTop] = useState(0); // Track last scroll position
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      // Check if scrolling up or down
+      if (scrollTop > lastScrollTop) {
+        // Scrolling down
+        setIsScrollingUp(false);
+      } else {
+        // Scrolling up
+        setIsScrollingUp(true);
+      }
+
+      setLastScrollTop(scrollTop <= 0 ? 0 : scrollTop); // Set last scroll position
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll); // Cleanup listener
+    };
+  }, [lastScrollTop]); // Re-run effect when `lastScrollTop` changes
+
   return (
     <>
       {/* Toggle button for mobile screens */}
-      <S.SidebarToggleButton className={isSidebarOpen ? "open" : ""} onClick={toggleSidebar}>
+      <S.SidebarToggleButton
+        className={isSidebarOpen ? "open" : ""}
+        onClick={toggleSidebar}
+        style={{ display: isScrollingUp ? "block" : "none" }} // Show button only when scrolling up
+      >
         <span></span>
         <span></span>
         <span></span>
