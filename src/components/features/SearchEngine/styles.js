@@ -22,6 +22,10 @@ export const SearchButton = styled.button`
   &:focus {
     outline: none;
   }
+  @media (max-width: 576px) {
+    width: 100%;
+    height: 40px;
+  }
 `;
 // Title
 export const Title = styled.h1`
@@ -166,6 +170,10 @@ export const Filter = styled.div`
 // Date Input Container
 export const DateInputContainer = styled.div`
   position: relative;
+
+  @media (max-width: 576px) {
+    font-size: 14px;
+  }
 `;
 
 // Styled date input remains the same
@@ -186,6 +194,7 @@ export const DateInput = styled.input`
 
   @media (max-width: 576px) {
     height: 40px;
+    width: 100%;
     font-size: 14px;
   }
 `;

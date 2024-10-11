@@ -20,6 +20,12 @@ export const Header = styled.div`
   p {
     color: #6f7170;
   }
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
 `;
 
 export const SelectContainer = styled.div`
