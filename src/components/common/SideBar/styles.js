@@ -93,17 +93,36 @@ export const SidebarIcon = styled.div`
 export const SidebarToggleButton = styled.button`
   position: fixed;
   left: 10px;
-  z-index: 0;
-  top: 10px;
-  background-color: #00a86b;
-  color: #fff;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
   z-index: 999;
+  top: 10px;
+  background: none;
+  border: none;
   display: none;
+  cursor: pointer;
+
+  &.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  &.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  &.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+
+  span {
+    display: block;
+    width: 30px;
+    height: 4px;
+    background-color: #00a86b;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
 
   @media (max-width: 768px) {
     display: block;
   }
 `;
+export const Overlay = styled.div``;

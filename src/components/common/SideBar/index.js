@@ -13,7 +13,14 @@ const Sidebar = () => {
   return (
     <>
       {/* Toggle button for mobile screens */}
-      <S.SidebarToggleButton onClick={toggleSidebar}>☰</S.SidebarToggleButton>
+      <S.SidebarToggleButton className={isSidebarOpen ? "open" : ""} onClick={toggleSidebar}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </S.SidebarToggleButton>
+
+      {/* Overlay */}
+      <S.Overlay isOpen={isSidebarOpen} onClick={toggleSidebar} />
 
       {/* Sidebar */}
       <S.SidebarWrapper className={isSidebarOpen ? "open" : ""}>
@@ -22,7 +29,7 @@ const Sidebar = () => {
             <img src="/icon.png" alt="Main Logo" width={36} height={36} />
           </S.SidebarLogo>
 
-          {isSidebarOpen && <S.CloseButton onClick={toggleSidebar}>✕</S.CloseButton>}
+          {isSidebarOpen && <S.CloseButton onClick={toggleSidebar}></S.CloseButton>}
 
           {/* Icons */}
           <S.SidebarIcon>
